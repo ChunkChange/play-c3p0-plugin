@@ -59,7 +59,8 @@ object ApplicationBuild extends Build {
     publishTo <<= version { (v: String) =>
       val nexus = "https://oss.sonatype.org/"
       if (v.trim.endsWith("SNAPSHOT")) {
-        Some("snapshots" at nexus + "content/repositories/snapshots")
+        //Some("snapshots" at nexus + "content/repositories/snapshots")
+        Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
       } else {
         Some("releases"  at nexus + "service/local/staging/deploy/maven2")
       }
