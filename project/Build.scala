@@ -25,7 +25,8 @@ object ApplicationBuild extends Build {
   val appOrganization = "jp.furyu"
   val appName         = "play-c3p0-plugin"
   val appVersion      = "0.2-SNAPSHOT"
-  val appScalaVersion = "2.10.0"
+  //val appScalaVersion = "2.10.0"
+  val appScalaVersion = "2.9.1"
   val appScalaCrossVersions = Seq(appScalaVersion, "2.9.1")
 
   lazy val scalaRiformSettings = ScalariformKeys.preferences := FormattingPreferences()
@@ -48,7 +49,7 @@ object ApplicationBuild extends Build {
           case "2.10.0" => "2.10"
           case x => x
         }
-        case "2.9.1" | "2.9.2" => "play" %% "play" % "[2.0,)"
+        case "2.9.1" | "2.9.2" => "play" %% "play" % "2.0.4"
       }
     }),
     libraryDependencies ++= Seq(
